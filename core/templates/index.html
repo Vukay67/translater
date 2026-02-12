@@ -1,0 +1,57 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="container">
+    <div class="header">Переводчик</div>
+
+    <form class="form-row">
+        <select name="lan1">
+            <option value="">Выберите язык</option>
+            <option value="ru">Русский</option>
+            <option value="en">Английский</option>
+        </select>
+
+        <input type="text" placeholder="Введите текст" name="tekt">
+
+        <select name="lan2">
+            <option value="">Выберите язык</option>
+            <option value="ru">Русский</option>
+            <option value="en">Английский</option>
+        </select>
+
+        <button type="submit">Перевести</button>
+    </form>
+
+    <div class="result" id="resultText">
+        {{ result }}
+    </div>
+    
+    <div class="result-block">
+        <button class="copy-btn" id="copyBtn">Копировать</button>
+    </div>
+</div>
+
+<script>
+    const copyBtn = document.getElementById('copyBtn');
+    const resultText = document.getElementById('resultText');
+
+    copyBtn.addEventListener('click', () => {
+        const text = resultText.innerText.trim();
+
+        if (!text) return;
+
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                copyBtn.innerText = 'Скопировано!';
+                setTimeout(() => {
+                    copyBtn.innerText = 'Копировать';
+                }, 1200);
+            })
+            .catch(() => {
+                copyBtn.innerText = 'Ошибка';
+                setTimeout(() => {
+                    copyBtn.innerText = 'Копировать';
+                }, 1200);
+            });
+    });
+</script>
