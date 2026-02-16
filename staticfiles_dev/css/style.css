@@ -20,6 +20,7 @@ body {
     border-radius: 14px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
     padding: 22px;
+    transition: all 0.3s ease;
 }
 
 .header {
@@ -27,6 +28,8 @@ body {
     font-weight: 600;
     color: #1a1a1a;
     margin-bottom: 14px;
+    text-align: center;
+    transition: font-size 0.3s ease;
 }
 
 .form-row {
@@ -34,6 +37,7 @@ body {
     gap: 12px;
     align-items: center;
     flex-wrap: wrap;
+    transition: all 0.3s ease;
 }
 
 select, input {
@@ -44,7 +48,9 @@ select, input {
     color: #1f2937;
     font-size: 16px;
     outline: none;
-    transition: 0.2s;
+    transition: all 0.3s ease;
+    flex: 1 1 150px;
+    min-width: 120px;
 }
 
 select:focus, input:focus {
@@ -60,7 +66,7 @@ button {
     color: white;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.3s ease;
 }
 
 button:hover {
@@ -72,10 +78,12 @@ button:hover {
     align-items: center;
     gap: 10px;
     margin-top: 18px;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
 }
 
 .result {
-    flex: 1;
+    flex: 1 1 100%;
     padding: 14px 16px;
     border-radius: 12px;
     background: #f5f7ff;
@@ -83,6 +91,7 @@ button:hover {
     font-size: 18px;
     color: #111827;
     min-height: 56px;
+    transition: all 0.3s ease;
 }
 
 .copy-btn {
@@ -92,9 +101,9 @@ button:hover {
     background: #fff;
     color: #111827;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.3s ease;
     align-self: flex-end;
-    margin:auto;    
+    margin: auto;
 }
 
 .copy-btn:hover {
@@ -103,4 +112,65 @@ button:hover {
 
 .copy-btn:active {
     transform: translateY(1px);
+}
+
+/* ===================== Планшет ===================== */
+@media (max-width: 860px) {
+    .container {
+        padding: 18px;
+    }
+
+    .header {
+        font-size: 20px;
+    }
+
+    .form-row {
+        gap: 10px;
+    }
+
+    select, input, button {
+        font-size: 15px;
+        flex: 1 1 130px;
+    }
+
+    .result {
+        font-size: 17px;
+        min-height: 50px;
+    }
+}
+
+/* ===================== Мобильный ===================== */
+@media (max-width: 600px) {
+    .container {
+        padding: 16px;
+    }
+
+    .header {
+        font-size: 18px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    select, input, button {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .result {
+        font-size: 16px;
+        padding: 12px;
+        min-height: 50px;
+    }
+
+    .result-block {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .copy-btn {
+        width: 100%;
+    }
 }
